@@ -1,16 +1,30 @@
-<h1>Books</h1>
-<% @lists.each do |book| %>
+<!DOCTYPE html>
+<html>
 
-  <p>Title</p>
-  <span><%= book.title %></span>
+  <h1>Books</h1>
 
-<% end %>
+  <div>
+    <th>Title</th>
+    <% @lists.each do |book| %>
+      <li class="title-index"><%= book.title %></li>
+    <% end %>
+  </div>
+  
+  <div>
+    <th>Body</th>
+    <% @lists.each do |book| %>
+      <li class="body-index"><%= book.body %></li>
+    <% end %>
+  </div>
 
 <%= form_with model: @new, url: '/new',method: :post do |f| %>
   <h2>New book</h2>
-  <h1>Title</h1>
-    <%= f.text_field :title %>
-  <h1>Body</h1>
-    <%= f.text_area :body %>
+  <label>Title</label>
+    <p><%= f.text_field :title %></p>
+    
+  <label>Body</label>
+    <p><%= f.text_area :body %></p>
   <%= f.submit 'Create Book' %>
 <% end %>
+
+</html>
