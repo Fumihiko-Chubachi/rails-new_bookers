@@ -6,12 +6,16 @@ class BooksController < ApplicationController
   end
   
   def create
-    new = Book.new(book_params)
-    new.save
-    redirect_to '/index'
+    @new = Book.new(book_params)
+    if  @new.save
+      render :show
+    else
+      render :index
+    end
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def edit

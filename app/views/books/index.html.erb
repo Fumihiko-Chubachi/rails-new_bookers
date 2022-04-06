@@ -16,6 +16,13 @@
       <li class="body-index"><%= book.body %></li>
     <% end %>
   </div>
+  
+  <div>
+    <th cospan="3"></th>
+    <% @lists.each do |book| %>
+      <li><%= link_to "Show", book_path(book.id) %></li>
+    <% end %>
+  </div>
 
 <%= form_with model: @new, url: '/new',method: :post do |f| %>
   <h2>New book</h2>
