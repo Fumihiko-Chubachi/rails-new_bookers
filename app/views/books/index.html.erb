@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
 
-  <h1>Books</h1>
 
-  <div>
-    <th>Title</th>
-    <% @lists.each do |book| %>
-      <li class="title-index"><%= book.title %></li>
-    <% end %>
-  </div>
-  
-  <div>
-    <th>Body</th>
-    <% @lists.each do |book| %>
-      <li class="body-index"><%= book.body %></li>
-    <% end %>
-  </div>
-  
-  <div>
-    <th cospan="3"></th>
-    <% @lists.each do |book| %>
-      <li><%= link_to "Show", book_path(book.id) %></li>
-    <% end %>
-  </div>
-  
-  <div>
-    <th cospan="3"></th>
-    <% @lists.each do |book| %>
-      <li><%= link_to "Edit", edit_book_path(book.id) %></li>
-    <% end %>
-  </div>
-  
-  <div>
-    <th cospan="3"></th>
-    <% @lists.each do |book| %>
-      <li><%= link_to "Destroy",book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></li>
-    <% end %>
-  </div>
-  
-<%= form_with model: @new, url: '/books',method: :post do |f| %>
-  <h2>New book</h2>
-  <label>Title</label>
-    <p><%= f.text_field :title %></p>
+
+
+
+  <body class="index-body">
+    <h1 class="index-Books">Books</h1>
+      <table>
+        <thead>
+          <tr>
+            <th class="index-label">Title</th>
+            <th class="index-label">Body</th>
+            <th colspan="3" class="index-label"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lists.each do |book| %>
+            <tr>
+              <td class="index-main"><%= book.title %></td>
+              <td class="index-main"><%= book.body %></td>
+              <td class="index-main"><%= link_to "Show", book_path(book.id) %></td>
+              <td class="index-main"><%= link_to "Edit", edit_book_path(book.id) %></td>
+              <td class="index-main"><%= link_to "Destroy",book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </body>
     
-  <label>Body</label>
-    <p><%= f.text_area :body %></p>
-  <%= f.submit 'Create Book' %>
-<% end %>
+    
+  <%= form_with model: @new, url: '/books',method: :post do |f| %>
+    <h2 class="index-New_book">New book</h2>
+    <form>
+      <div class="field">
+        <label>Title</label>
+        <%= f.text_field :title %>
+      </div>
+      
+      <div class="field">
+        <label>Body</label>
+        <%= f.text_area :body %>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit 'Create Book' %>
+      </div>
+    <% end %>
+  </form>
 
 </html>

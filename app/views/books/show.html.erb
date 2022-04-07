@@ -5,18 +5,8 @@
   </head>
   
   <body>
-    
-    <div>
-      <p><strong>Title:</strong><%= @book.title %></p>
-    </div>
-    
-    <div>
-      <p><strong>Body:</strong><%= @book.body %></p>
-    </div>
-    
-    <div>
-      <a><%= link_to "Edit", edit_book_path(@book.id) %><a/>|<a><%= link_to "Back", "/books" %></a>
-    </div>  
-    
+    <p><strong>Title:</strong><%= @book.title %></p>
+    <p><strong>Body:</strong><%= @book.body %></p>
+    <a><%= link_to "Edit", edit_book_path(@book.id) %><a/> | <a><%= link_to "Back", "/books" %></a>
   </body>
 </html>
