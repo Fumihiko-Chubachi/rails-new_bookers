@@ -6,6 +6,11 @@
 
 
   <body class="index-body">
+    
+    <% if flash[:destroy] %>
+    <p class="flash-message"><%= flash[:destroy] %></p>
+    <% end %>
+    
     <h1 class="index-Books">Books</h1>
       <table>
         <thead>
