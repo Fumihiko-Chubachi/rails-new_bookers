@@ -32,6 +32,16 @@
     
   <%= form_with model: @new, url: '/books',method: :post do |f| %>
     <h2 class="index-New_book">New book</h2>
+    
+    <% if @new.errors.any? %>
+      <%= @new.errors.count %> errors prohibited this book from being saved:
+      <ul>
+        <% @new.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
     <form>
       <div class="field">
         <label>Title</label>

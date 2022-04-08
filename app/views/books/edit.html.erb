@@ -1,9 +1,17 @@
-<h1>Editing Book</h1>
-
-<%= form_with model: @edit, method: :patch do |f| %>
-
 <html>
   <body>
+    <h1>Editing Book</h1>
+    <%= form_with model: @edit, method: :patch do |f| %>
+    
+    <% if @edit.errors.any? %>
+      <%= @edit.errors.count %> errors prohibited this book from being saved:
+      <ul>
+        <% @edit.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
     <div class="field">
       <label>Title</label>
       <a><%= f.text_field :title %></a>
