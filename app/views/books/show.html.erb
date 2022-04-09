@@ -1,21 +1,12 @@
-<!DOCTYPE HTML>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-  </head>
-  
-  <body>
-    
+
     <% if flash[:create] %>
     <p class="flash-message"><%= flash[:create] %></p>
     <% end %>
-    
+
     <% if flash[:update] %>
     <p class="flash-message"><%= flash[:update] %></p>
     <% end %>
-    
+
     <p><strong>Title:</strong><%= @book.title %></p>
     <p><strong>Body:</strong><%= @book.body %></p>
-    <a><%= link_to "Edit", edit_book_path(@book.id) %><a/> | <a><%= link_to "Back", "/books" %></a>
-  </body>
-</html>
+    <%= link_to "Edit", edit_book_path(@book.id) %>|<%= link_to "Back", "/books" %>
